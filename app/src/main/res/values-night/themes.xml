@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.StrengthenNumber" parent="Theme.Material3.DayNight.NoActionBar">
+
+    </style>
+
+    <style name="Theme.RemoveSplashScreenTheme" parent="Base.Theme.StrengthenNumber">
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+</resources>

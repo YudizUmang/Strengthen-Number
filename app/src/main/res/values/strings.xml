@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Strengthen Number</string>
+
+    <!--Common-->
+    <string name="Skip">Skip</string>
+    <string name="Next">Next</string>
+    <string name="Get_Started">Get Started</string>
+
+    <!-- Onboarding text-->
+    <!--title-->
+    <string name="onboarding_title1">Experience the Culture</string>
+    <string name="onboarding_title2">Post workouts, Tips &amp; Progress</string>
+    <string name="onboarding_title3">Join Fitness events</string>
+
+    <!-- Description -->
+    <string name="onboarding_desc1">Join the community that will fuel your passion for health and fitness by supporting each step of your journey.</string>
+    <string name="onboarding_desc2">Motivate and inspire others by sharing workouts, tips and tricks, or progress updates with pictures and videos. Feel free to draw some inspiration from others doing the same.</string>
+    <string name="onboarding_desc3">Whether its attending a local group event, traveling out of state to a big seminar, or inviting friends to go through that tough workout with you, the events page will help you achieve your goals.</string>
+
+
+</resources>
