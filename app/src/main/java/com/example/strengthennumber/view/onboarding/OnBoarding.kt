@@ -11,6 +11,10 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.strengthennumber.R
 
+interface OnBoardingButtons{
+    fun skipBtnClick()
+    fun nextBtnClick(text : String)
+}
 
 class OnBoarding(
     private val img: Drawable?,
@@ -18,8 +22,7 @@ class OnBoarding(
     private val desc: String,
     private val canSkip: Boolean = true,
     private val isLast: Boolean = false,
-    private
-    val position: Int
+    private val listener : OnBoardingButtons? = null
 ) : Fragment() {
 
 
@@ -38,6 +41,9 @@ class OnBoarding(
         val skipBtn = view.findViewById<Button>(R.id.skip_btn)
         if (canSkip) {
             skipBtn.visibility = View.VISIBLE
+            skipBtn.setOnClickListener {
+                listener?.skipBtnClick()
+            }
         } else {
             skipBtn.visibility = View.GONE
         }
@@ -48,11 +54,11 @@ class OnBoarding(
         } else {
             nextBtn.text = getString(R.string.Next)
         }
-
-        skipBtn.setOnClickListener {
-
+        nextBtn.setOnClickListener {
+            listener?.nextBtnClick(nextBtn.text as String)
         }
-        return view
+
+       return view
     }
 
 }

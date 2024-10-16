@@ -23,6 +23,4 @@ class ViewPagerAdapter(
             else -> throw IllegalStateException("Inavlid position: $position")
         }
     }
-
-
 }

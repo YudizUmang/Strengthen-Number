@@ -8,8 +8,13 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.strengthennumber.R
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
-class OnBoardingActivity : AppCompatActivity() {
+class OnBoardingActivity : AppCompatActivity(), OnBoardingButtons {
+    private lateinit var viewPager : ViewPager2
+    private lateinit var adapter: ViewPagerAdapter
+    private lateinit var tabLayout: TabLayout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -21,27 +26,33 @@ class OnBoardingActivity : AppCompatActivity() {
                 getString(R.string.onboarding_title1),
                 getString(R.string.onboarding_desc1),
                 true,
-                false
+                false,
+                this
             ),
             OnBoarding(
                 getDrawableFromImg(R.drawable.on_board2),
                 getString(R.string.onboarding_title2),
                 getString(R.string.onboarding_desc2),
                 true,
-                false
+                false,
+                this
             ),
             OnBoarding(
                 getDrawableFromImg(R.drawable.on_board3),
                 getString(R.string.onboarding_title3),
                 getString(R.string.onboarding_desc3),
                 false,
-                true
+                true,
+                this
             )
         )
+        tabLayout = findViewById(R.id.into_tab_layout)
+        viewPager = findViewById(R.id.onboarding_viewPager)
+        adapter = ViewPagerAdapter(onBoardList, supportFragmentManager, lifecycle)
+        viewPager.adapter = adapter
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
 
-        val viewpager = findViewById<ViewPager2>(R.id.onboarding_viewPager)
-        val adapter = ViewPagerAdapter(onBoardList, supportFragmentManager, lifecycle)
-        viewpager.adapter = adapter
+        }.attach()
     }
 
     private fun getDrawableFromImg(id: Int): Drawable? {
@@ -49,5 +60,18 @@ class OnBoardingActivity : AppCompatActivity() {
             this,
             R.drawable.logo
         )
+    }
+
+    override fun skipBtnClick() {
+        viewPager.currentItem = (viewPager.adapter?.itemCount ?: 0) - 1
+    }
+
+    override fun nextBtnClick(text: String) {
+        val nextItem = viewPager.currentItem + 1
+        if (nextItem < (viewPager.adapter?.itemCount ?: 0)) {
+            viewPager.currentItem = nextItem
+        } else {
+
+        }
     }
 }
