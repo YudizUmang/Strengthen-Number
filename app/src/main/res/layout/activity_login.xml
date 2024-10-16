@@ -93,8 +93,8 @@
         android:textFontWeight="700"
         android:textColor="@color/white"
         app:cornerRadius="@dimen/_5sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/filledTextField"
+        app:layout_constraintEnd_toEndOf="@id/filledTextField"
         app:layout_constraintTop_toBottomOf="@id/error_text"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
