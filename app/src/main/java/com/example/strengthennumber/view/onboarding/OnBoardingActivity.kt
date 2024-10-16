@@ -1,5 +1,6 @@
 package com.example.strengthennumber.view.onboarding
 
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -8,6 +9,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.strengthennumber.R
+import com.example.strengthennumber.view.login.LoginActivity
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -50,8 +52,7 @@ class OnBoardingActivity : AppCompatActivity(), OnBoardingButtons {
         viewPager = findViewById(R.id.onboarding_viewPager)
         adapter = ViewPagerAdapter(onBoardList, supportFragmentManager, lifecycle)
         viewPager.adapter = adapter
-        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-
+        TabLayoutMediator(tabLayout, viewPager) { _, _ ->
         }.attach()
     }
 
@@ -71,7 +72,8 @@ class OnBoardingActivity : AppCompatActivity(), OnBoardingButtons {
         if (nextItem < (viewPager.adapter?.itemCount ?: 0)) {
             viewPager.currentItem = nextItem
         } else {
-
+            startActivity(Intent(this, LoginActivity::class.java) )
+            finish()
         }
     }
 }

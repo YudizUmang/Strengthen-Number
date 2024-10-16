@@ -3,5 +3,9 @@
     <color name="primaryColor">#182C07</color>
     <color name="surfaceColor">#141E1F</color>
     <color name="surfaceColorS97">#F3F7F7</color>
+    <color name="surfaceColorS70">#A2C1C3</color>
     <color name="textColor">#1A1A1A</color>
+    <color name="errorColor">#ED461E</color>
+    <color name="surfaceColorS19">#273B3C</color>
+    <color name="white">@android:color/white</color>
 </resources>

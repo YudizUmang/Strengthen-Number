@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.strengthennumber"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -52,6 +52,7 @@ dependencies {
     kapt(libs.hilt.compiler)
     implementation(libs.sdp.android)
     implementation(libs.ssp.android)
+    implementation (libs.pinview)
 
 }
 kapt {

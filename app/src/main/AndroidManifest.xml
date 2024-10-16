@@ -14,14 +14,20 @@
         android:theme="@style/Theme.StrengthenNumber"
         tools:targetApi="31">
         <activity
+            android:name=".view.login.OtpVerificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.login.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.onboarding.OnBoardingActivity"
             android:exported="false" />
         <activity
-            android:launchMode="singleInstance"
-            android:theme="@style/Theme.RemoveSplashScreenTheme"
-            android:noHistory="true"
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:noHistory="true"
+            android:theme="@style/Theme.RemoveSplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

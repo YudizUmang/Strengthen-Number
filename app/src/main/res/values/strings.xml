@@ -5,6 +5,8 @@
     <string name="Skip">Skip</string>
     <string name="Next">Next</string>
     <string name="Get_Started">Get Started</string>
+    <string name="images">Images</string>
+    <string name="verify">Verify</string>
 
     <!-- Onboarding text-->
     <!--title-->
@@ -17,5 +19,16 @@
     <string name="onboarding_desc2">Motivate and inspire others by sharing workouts, tips and tricks, or progress updates with pictures and videos. Feel free to draw some inspiration from others doing the same.</string>
     <string name="onboarding_desc3">Whether its attending a local group event, traveling out of state to a big seminar, or inviting friends to go through that tough workout with you, the events page will help you achieve your goals.</string>
 
+    <!-- Login -->
+    <string name="account">Account</string>
+    <string name="enter_number">Enter your mobile number to proceed.</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="continue_text">Continue</string>
+    <string name="login_error_text">Please enter valid phone number.</string>
+
+    <!-- OTP -->
+    <string name="Otp_title">OTP Verification</string>
+    <string name="not_received_otp">Didn\'t received OTP?</string>
+    <string name="resend_otp">Resend OTP</string>
 
 </resources>

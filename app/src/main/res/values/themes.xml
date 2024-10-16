@@ -13,7 +13,7 @@
 
     <style name="ShapeAppearance.App.CornerSize" parent="Base.Theme.StrengthenNumber">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">16dp</item>
+        <item name="cornerSize">@dimen/_20sdp</item>
     </style>
 
     <style name="Theme.StrengthenNumber" parent="Base.Theme.StrengthenNumber" />

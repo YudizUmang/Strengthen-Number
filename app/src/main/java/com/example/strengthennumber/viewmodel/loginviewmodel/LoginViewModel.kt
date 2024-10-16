@@ -1,4 +1,7 @@
 package com.example.strengthennumber.viewmodel.loginviewmodel
 
-class LoginViewModel {
+import androidx.lifecycle.ViewModel
+
+class LoginViewModel : ViewModel() {
+
 }

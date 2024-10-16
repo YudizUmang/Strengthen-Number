@@ -7,4 +7,94 @@
     android:layout_height="match_parent"
     tools:context=".view.login.LoginActivity">
 
+    <TextView
+        android:id="@+id/title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/account"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_80sdp"
+        android:fontFamily="@font/font"
+        android:textFontWeight="700"
+        android:textSize="@dimen/_32ssp"
+        />
+
+    <TextView
+        android:id="@+id/title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_number"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title1"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/font"
+        android:textFontWeight="400"
+        android:textSize="@dimen/_16ssp"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/filledTextField"
+        app:boxStrokeColor="@color/surfaceColorS70"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_32sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title2"
+        app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+        app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+        app:boxCornerRadiusTopStart="@dimen/_10sdp"
+        app:startIconDrawable="@drawable/call_light"
+        android:layout_marginTop="@dimen/_64sdp"
+        android:layout_marginEnd="@dimen/_32sdp"
+        android:hint="@string/mobile_number">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_login"
+            android:inputType="number"
+            android:fontFamily="@font/font"
+            android:textFontWeight="400"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/_32sdp"
+        app:layout_constraintTop_toBottomOf="@id/filledTextField"
+        android:id="@+id/error_text"
+        android:textColor="@color/errorColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:fontFamily="@font/font"
+        android:textFontWeight="400"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/continue_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_48sdp"
+        android:fontFamily="@font/font"
+        android:backgroundTint="@color/surfaceColorS19"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_32sdp"
+        android:layout_marginEnd="@dimen/_32sdp"
+        android:text="@string/continue_text"
+        android:textSize="@dimen/_16ssp"
+        android:textFontWeight="700"
+        android:textColor="@color/white"
+        app:cornerRadius="@dimen/_5sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/error_text"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

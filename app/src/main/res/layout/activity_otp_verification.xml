@@ -7,4 +7,134 @@
     android:layout_height="match_parent"
     tools:context=".view.login.OtpVerificationActivity">
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/back_btn"
+        android:layout_marginTop="@dimen/_50sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        app:icon="@drawable/back"
+        app:iconTint="@color/primaryColor" />
+
+    <TextView
+        android:id="@+id/otp_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_btn"
+        android:textAlignment="center"
+        android:fontFamily="@font/font"
+        android:textSize="@dimen/_24ssp"
+        android:textFontWeight="700"
+        android:text="@string/Otp_title"/>
+
+    <TextView
+        android:id="@+id/otp_title2"
+        android:textSize="@dimen/_16ssp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/otp_title"
+        android:layout_margin="@dimen/_15sdp"
+        android:textAlignment="center"
+        />
+
+    <com.chaos.view.PinView
+        style="@style/PinWidget.PinView"
+        android:id="@+id/otp_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/otp_title2"
+        android:inputType="number"
+        app:lineColor="@color/surfaceColorS70"
+        app:itemRadius="@dimen/_10sdp"
+        app:itemSpacing="@dimen/_10sdp"
+        app:itemHeight="@dimen/_50sdp"
+        app:itemWidth="@dimen/_50sdp"
+        android:fontFamily="@font/font"
+        app:layout_constraintCircleRadius="@dimen/_10sdp"
+        app:itemCount="4"
+        android:clickable="true"
+        />
+
+    <TextView
+        app:layout_constraintStart_toStartOf="@id/otp_view"
+        app:layout_constraintTop_toBottomOf="@id/otp_view"
+        android:id="@+id/error_text"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textColor="@color/errorColor"
+        android:layout_width="wrap_content"
+        android:textSize="@dimen/_12ssp"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:fontFamily="@font/font"
+        android:textFontWeight="400"
+        />
+
+    <TextView
+        android:id="@+id/not_received_otp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/error_text"
+        android:text="@string/not_received_otp"
+        android:fontFamily="@font/font"
+        android:textFontWeight="400"
+        />
+
+    <TextView
+        android:id="@+id/otp_sec"
+        android:textSize="@dimen/_14ssp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/not_received_otp"
+        app:layout_constraintStart_toEndOf="@id/not_received_otp"
+        android:fontFamily="@font/font"
+        android:textFontWeight="500"
+        />
+
+
+    <Button
+        android:id="@+id/resend_otp"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/font"
+        android:textSize="@dimen/_16ssp"
+        android:text="@string/resend_otp"
+        android:textColor="@color/textColor"
+            app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/not_received_otp"
+        android:textFontWeight="700"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/verify_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_48sdp"
+        android:layout_margin = "@dimen/_20sdp"
+        android:fontFamily="@font/font"
+        android:backgroundTint="@color/surfaceColorS19"
+        android:text="@string/verify"
+        android:textSize="@dimen/_16ssp"
+        android:textFontWeight="700"
+        android:textColor="@color/white"
+        app:cornerRadius="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/resend_otp"
+        />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

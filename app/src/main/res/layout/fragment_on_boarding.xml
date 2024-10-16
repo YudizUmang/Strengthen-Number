@@ -9,9 +9,11 @@
 
     <ImageView
         android:id="@+id/onboard_img"
-        android:layout_width="@dimen/_250sdp"
-        android:layout_height="@dimen/_300sdp"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_200sdp"
         android:layout_margin="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:contentDescription="@string/images"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,17 +21,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/inner_constraint_layout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_300sdp"
+        android:layout_height="@dimen/_280sdp"
         android:layout_margin="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_25sdp"
         android:background="@color/surfaceColorS97"
+        app:layout_constraintTop_toBottomOf="@id/onboard_img"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:shapeAppearance="@style/ShapeAppearance.App.CornerSize"
-
-
-        >
+        app:shapeAppearance="@style/ShapeAppearance.App.CornerSize">
 
         <TextView
             android:id="@+id/onboard_title"
@@ -67,6 +67,8 @@
             android:layout_marginBottom="@dimen/_15sdp"
             android:fontFamily="@font/font"
             android:text="@string/Skip"
+            android:textFontWeight="700"
+            android:textSize="@dimen/_16ssp"
             android:textColor="@color/textColor"
             app:layout_constraintBottom_toBottomOf="@id/inner_constraint_layout"
             app:layout_constraintStart_toStartOf="@id/inner_constraint_layout" />
@@ -77,9 +79,11 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_30sdp"
             android:layout_marginBottom="@dimen/_15sdp"
+            android:textFontWeight="700"
+            android:textSize="@dimen/_16ssp"
             android:fontFamily="@font/font"
             android:text="@string/Next"
-            app:cornerRadius="@dimen/_5sdp"
+            app:cornerRadius="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="@id/inner_constraint_layout"
             app:layout_constraintEnd_toEndOf="@id/inner_constraint_layout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
