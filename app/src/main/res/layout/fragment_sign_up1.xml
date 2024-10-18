@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.signup.fragments.SignUpFragment1">
+
+    <TextView
+
+        android:id="@+id/signup_title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/profile_setup"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:fontFamily="@font/font"
+        android:textFontWeight="700"
+        android:textSize="@dimen/_24ssp"
+        />
+
+    <TextView
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:id="@+id/signup_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/profile_setup_desc"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="@id/signup_title1"
+        app:layout_constraintEnd_toEndOf="@id/signup_title1"
+        app:layout_constraintTop_toBottomOf="@id/signup_title1"
+        android:fontFamily="@font/font"
+        android:textFontWeight="400"
+        android:textSize="@dimen/_16ssp"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/user_nm"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
+        android:layout_margin="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_56sdp"
+        android:layout_marginStart="@dimen/_32sdp"
+        app:layout_constraintStart_toStartOf="@id/signup_desc"
+        app:layout_constraintEnd_toEndOf="@id/signup_desc"
+        app:layout_constraintTop_toBottomOf="@id/signup_desc"
+        app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+        app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+        app:boxCornerRadiusTopStart="@dimen/_10sdp"
+        app:startIconDrawable="@drawable/profile_light"
+        android:hint="@string/full_name">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signup_user_nm"
+            android:inputType="text"
+            android:fontFamily="@font/font"
+            android:textSize="@dimen/_16ssp"
+            android:textFontWeight="400"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/user_email"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_56sdp"
+        app:layout_constraintStart_toStartOf="@id/user_nm"
+        app:layout_constraintEnd_toEndOf="@id/user_nm"
+        app:layout_constraintTop_toBottomOf="@id/user_nm"
+        app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+        app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+        app:boxCornerRadiusTopStart="@dimen/_10sdp"
+        app:startIconDrawable="@drawable/mail_light"
+        android:hint="@string/email">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signup_user_email"
+            android:inputType="textEmailAddress"
+            android:fontFamily="@font/font"
+            android:textSize="@dimen/_16ssp"
+            android:textFontWeight="400"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/user_dob"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_56sdp"
+        app:layout_constraintStart_toStartOf="@id/user_nm"
+        app:layout_constraintEnd_toEndOf="@id/user_nm"
+        app:layout_constraintTop_toBottomOf="@id/user_email"
+        app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+        app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+        app:boxCornerRadiusTopStart="@dimen/_10sdp"
+        app:startIconDrawable="@drawable/calendar_light"
+        android:hint="@string/dob">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signup_user_dob"
+            android:inputType="date"
+            android:fontFamily="@font/font"
+            android:textSize="@dimen/_16ssp"
+            android:textFontWeight="400"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <CheckBox
+        android:id="@+id/tc_checkbox"
+        app:layout_constraintStart_toStartOf="@id/user_nm"
+        app:layout_constraintTop_toBottomOf="@id/user_dob"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/surfaceColorS60"
+        android:text="@string/t_c"
+        android:fontFamily="@font/font"
+        android:textFontWeight="500"
+        android:textSize="@dimen/_14ssp"
+        />
+
+    <CheckBox
+        android:id="@+id/age_checkbox"
+        app:layout_constraintStart_toStartOf="@id/user_nm"
+        app:layout_constraintTop_toBottomOf="@id/tc_checkbox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/surfaceColorS60"
+        android:text="@string/age_verification"
+        android:fontFamily="@font/font"
+        android:textFontWeight="500"
+        android:textSize="@dimen/_14ssp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

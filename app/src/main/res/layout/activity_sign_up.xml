@@ -3,9 +3,61 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:fitsSystemWindows="true"
+        android:windowSoftInputMode="stateVisible"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.signup.SignUpActivity">
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/signup_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        app:tabBackground="@drawable/signup_tab_selector"
+        app:tabIndicatorHeight="0dp"
+        android:clickable="false"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/signup_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_tablayout"/>
+
+    <Button
+        android:id="@+id/previous_btn"
+        android:textAllCaps="false"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:fontFamily="@font/font"
+        android:text="@string/previous"
+        android:textFontWeight="700"
+        android:textSize="@dimen/_16ssp"
+        android:textColor="@color/textColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/signup_next_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_48sdp"
+        android:layout_marginEnd="@dimen/_30sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:textFontWeight="700"
+        android:textSize="@dimen/_16ssp"
+        android:fontFamily="@font/font"
+        android:text="@string/Next"
+        app:cornerRadius="@dimen/_12sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
   </androidx.constraintlayout.widget.ConstraintLayout>

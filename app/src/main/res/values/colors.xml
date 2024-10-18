@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="primaryColor">#182C07</color>
+    <color name="primaryColorP60">#92E54D</color>
     <color name="surfaceColor">#141E1F</color>
     <color name="surfaceColorS97">#F3F7F7</color>
+    <color name="surfaceColorS90">#E0EAEB</color>
     <color name="surfaceColorS70">#A2C1C3</color>
+    <color name="surfaceColorS60">#83ADAF</color>
     <color name="textColor">#1A1A1A</color>
     <color name="errorColor">#ED461E</color>
     <color name="surfaceColorS19">#273B3C</color>
     <color name="white">@android:color/white</color>
+    <color name="textColorT90">#E6E6E6</color>
+    <color name="mtrl_textinput_default_box_stroke_color" tools:ovrride="true">#A2C1C3</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
 </resources>

@@ -31,4 +31,39 @@
     <string name="not_received_otp">Didn\'t received OTP?</string>
     <string name="resend_otp">Resend OTP</string>
 
+    <!-- Location -->
+    <string name="dont_allow">Don\'t Allow</string>
+    <string name="allow">Allow</string>
+    <string name="allow_location_access">Allow access to your location</string>
+    <string name="bullet_1">\u2022 Discover nearby fitness events and group workouts happening in your area.</string>
+    <string name="bullet_2">\u2022 Find friends who are crushing their goals near you.</string>
+
+    <!-- Signup -->
+    <string name="previous">Previous</string>
+    <string name="submit">Submit</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <!-- Signup -->
+    <string name="profile_setup">Profile Setup</string>
+    <string name="profile_setup_desc">Please complete the fields below to set up your profile.</string>
+    <string name="full_name">Full Name</string>
+    <string name="dob">Date of Birth</string>
+    <string name="email">Email</string>
+    <string name="t_c">I agree all terms &amp; conditions</string>
+    <string name="age_verification">Yes I am 18+ years old.</string>
+    <string name="upload_profile">Upload Profile Picture</string>
+    <string name="username">Username</string>
+    <string name="gender">Gender</string>
+    <string name="bio">Bio</string>
+    <string name="choose_interest">Choose minimum 3 interests</string>
+    <string name="gym">Gym</string>
+    <string name="cardio">Cardio</string>
+    <string name="workout">Workout</string>
+    <string name="cycling">Cycling</string>
+    <string name="zumba">Zumba</string>
+    <string name="dieting">Dieting</string>
+    <string name="sports">Sports</string>
+    <string name="running">Running</string>
+    <string name="fitness_level">Fitness level</string>
 </resources>

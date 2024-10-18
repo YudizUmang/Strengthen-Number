@@ -1,6 +1,7 @@
 package com.example.strengthennumber.view.login
 
 import android.content.Intent
+import android.location.Location
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.text.Spannable
@@ -13,6 +14,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.chaos.view.PinView
 import com.example.strengthennumber.R
+import com.example.strengthennumber.view.signup.LocationPermissionActivity
 import com.example.strengthennumber.view.signup.SignUpActivity
 
 
@@ -48,7 +50,7 @@ class OtpVerificationActivity : AppCompatActivity() {
                 errorText.visibility = View.VISIBLE
                 errorText.text = "Please enter 4 digit OTP"
             }else{
-                startActivity(Intent(this, SignUpActivity::class.java))
+                startActivity(Intent(this, LocationPermissionActivity::class.java))
             }
 
         }
@@ -58,14 +60,14 @@ class OtpVerificationActivity : AppCompatActivity() {
 
     private fun startTimer(){
         resendOtpBtn.isEnabled = false
-        resendOtpBtn.setTextColor(getResources().getColor(R.color.surfaceColorS19))
+        resendOtpBtn.setTextColor(getResources().getColor(R.color.textColorT90))
         val cTimer = object : CountDownTimer(30000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 otpTimer.text = "${(millisUntilFinished / 1000)} sec"
             }
             override fun onFinish() {
                 resendOtpBtn.isEnabled = true
-                resendOtpBtn.setTextColor(getResources().getColor(R.color.surfaceColorS70))
+                resendOtpBtn.setTextColor(getResources().getColor(R.color.textColor))
             }
         }
         cTimer.start()

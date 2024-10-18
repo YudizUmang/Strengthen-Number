@@ -30,14 +30,8 @@ class LoginActivity : AppCompatActivity() {
         loginContinueBtn = findViewById(R.id.continue_btn)
         loginErrorText = findViewById(R.id.error_text)
 
-        loginEditText.setOnFocusChangeListener { _, b ->
-            if(b){
-                loginEditText.setText("+91")
-            }
-        }
-
         loginContinueBtn.setOnClickListener {
-            if(loginEditText.text.isEmpty() || loginEditText.text.length != 13){
+            if(loginEditText.text.isEmpty() || loginEditText.text.length != 10){
                 loginEditText.error = getString(R.string.login_error_text)
                 loginErrorText.visibility = View.VISIBLE
                 loginErrorText.text = getString(R.string.login_error_text)

@@ -5,31 +5,39 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.onboarding.OnBoardingActivity">
+    tools:context=".view.signup.LocationPermissionActivity">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/onboarding_viewPager"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_200sdp"
+        android:layout_marginTop="@dimen/_80sdp"
+        android:src="@drawable/location_permission"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:id="@+id/location_permission_img"
+        />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/inner_constraint_layout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_300sdp"
+        android:layout_height="@dimen/_280sdp"
         android:layout_margin="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_25sdp"
         android:background="@color/surfaceColorS97"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:shapeAppearance="@style/ShapeAppearance.App.CornerSize">
-
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_16sdp"/>
         <TextView
-            android:id="@+id/onboard_title"
+            android:id="@+id/location_title"
+            android:text="@string/allow_location_access"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_15sdp"
@@ -38,42 +46,40 @@
             android:textFontWeight="700"
             android:textSize="@dimen/_24ssp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@id/inner_constraint_layout"
-            app:layout_constraintStart_toStartOf="@id/inner_constraint_layout"
+            app:layout_constraintEnd_toEndOf="@id/end_line"
+            app:layout_constraintStart_toStartOf="@id/start_line"
             app:layout_constraintTop_toTopOf="@id/inner_constraint_layout" />
 
         <TextView
-            android:id="@+id/onboard_desc"
+            android:id="@+id/location_desc1"
+            android:text="@string/bullet_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_5sdp"
             android:fontFamily="@font/font"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:textFontWeight="400"
             android:textSize="@dimen/_16ssp"
-            app:layout_constraintEnd_toEndOf="@id/inner_constraint_layout"
-            app:layout_constraintStart_toStartOf="@id/inner_constraint_layout"
-            app:layout_constraintTop_toBottomOf="@id/onboard_title" />
+            app:layout_constraintEnd_toEndOf="@id/end_line"
+            app:layout_constraintStart_toStartOf="@id/start_line"
+            app:layout_constraintTop_toBottomOf="@id/location_title" />
 
-
-        <com.google.android.material.tabs.TabLayout
-            android:background="@color/surfaceColorS97"
-            app:layout_constraintStart_toStartOf="@id/inner_constraint_layout"
-            app:layout_constraintEnd_toEndOf="@id/inner_constraint_layout"
-            app:layout_constraintBottom_toTopOf="@id/next_btn"
-            android:layout_margin="@dimen/_10sdp"
-            android:id="@+id/into_tab_layout"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/location_desc2"
+            android:text="@string/bullet_2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            app:tabBackground="@drawable/tab_selector"
-            app:tabGravity="center"
-            app:tabIndicatorHeight="0dp"
-            app:tabPaddingEnd="@dimen/_10sdp"
-            app:tabPaddingStart="@dimen/_10sdp" />
+            android:layout_margin="@dimen/_5sdp"
+            android:fontFamily="@font/font"
+            android:textAlignment="textStart"
+            android:textFontWeight="400"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toEndOf="@id/end_line"
+            app:layout_constraintStart_toStartOf="@id/start_line"
+            app:layout_constraintTop_toBottomOf="@id/location_desc1" />
 
         <Button
-            android:id="@+id/skip_btn"
+            android:id="@+id/dont_allow_btn"
             android:textAllCaps="false"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
@@ -81,7 +87,7 @@
             android:layout_marginStart="@dimen/_30sdp"
             android:layout_marginBottom="@dimen/_15sdp"
             android:fontFamily="@font/font"
-            android:text="@string/Skip"
+            android:text="@string/dont_allow"
             android:textFontWeight="700"
             android:textSize="@dimen/_16ssp"
             android:textColor="@color/textColor"
@@ -89,21 +95,24 @@
             app:layout_constraintStart_toStartOf="@id/inner_constraint_layout" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/next_btn"
-            android:layout_width="wrap_content"
+            android:id="@+id/allow_btn"
+            android:layout_width="@dimen/_91sdp"
             android:layout_height="@dimen/_48sdp"
             android:layout_marginEnd="@dimen/_30sdp"
             android:layout_marginBottom="@dimen/_15sdp"
             android:textFontWeight="700"
             android:textSize="@dimen/_16ssp"
             android:fontFamily="@font/font"
-            android:text="@string/Next"
-            app:cornerRadius="@dimen/_12sdp"
+            android:text="@string/allow"
+            app:cornerRadius="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="@id/inner_constraint_layout"
             app:layout_constraintEnd_toEndOf="@id/inner_constraint_layout" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_16sdp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
