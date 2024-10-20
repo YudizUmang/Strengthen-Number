@@ -55,6 +55,9 @@
     <string name="upload_profile">Upload Profile Picture</string>
     <string name="username">Username</string>
     <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="other">Other</string>
     <string name="bio">Bio</string>
     <string name="choose_interest">Choose minimum 3 interests</string>
     <string name="gym">Gym</string>

@@ -1,11 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.signup.fragments.SignUpFragment2">
 
-    <!-- TODO: Update blank fragment layout -->
+    <TextView
+
+        android:id="@+id/signup_title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/profile_setup"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:fontFamily="@font/font"
+        android:textFontWeight="700"
+        android:textSize="@dimen/_24ssp"
+        />
+
+    <TextView
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:id="@+id/signup_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/profile_setup_desc"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="@id/signup_title1"
+        app:layout_constraintEnd_toEndOf="@id/signup_title1"
+        app:layout_constraintTop_toBottomOf="@id/signup_title1"
+        android:fontFamily="@font/font"
+        android:textFontWeight="400"
+        android:textSize="@dimen/_16ssp"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/profilepic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_desc"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:id="@+id/profile_img"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/profile_img"
+        app:layout_constraintEnd_toEndOf="@id/profile_img"
+        app:layout_constraintTop_toBottomOf="@id/profile_img"
+        android:id="@+id/profile_title"
+        android:text="@string/upload_profile"
+        android:fontFamily="@font/font"
+        android:textFontWeight="400"
+        android:textColor="@color/textColorT20"
+        android:textSize="@dimen/_16ssp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/user_nm_id"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
+        android:layout_margin="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_56sdp"
+        android:layout_marginStart="@dimen/_32sdp"
+        app:layout_constraintStart_toStartOf="@id/signup_desc"
+        app:layout_constraintEnd_toEndOf="@id/signup_desc"
+        app:layout_constraintTop_toBottomOf="@id/profile_title"
+        app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+        app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+        app:boxCornerRadiusTopStart="@dimen/_10sdp"
+        app:startIconDrawable="@drawable/profile_light"
+        android:hint="@string/username">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signup_user_nm_id"
+            android:inputType="text"
+            android:fontFamily="@font/font"
+            android:textSize="@dimen/_16ssp"
+            android:textFontWeight="400"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/user_gender"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
+        android:layout_margin="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_56sdp"
+        android:layout_marginStart="@dimen/_32sdp"
+        app:layout_constraintStart_toStartOf="@id/signup_desc"
+        app:layout_constraintEnd_toEndOf="@id/signup_desc"
+        app:layout_constraintTop_toBottomOf="@id/user_nm_id"
+        app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+        app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+        app:boxCornerRadiusTopStart="@dimen/_10sdp"
+        app:startIconDrawable="@drawable/gender_light"
 
 
-</FrameLayout>
+        android:hint="@string/gender">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signup_user_gender"
+            android:drawableEnd="@drawable/down_arrow_light"
+            android:inputType="text"
+            android:fontFamily="@font/font"
+            android:textSize="@dimen/_16ssp"
+            android:textFontWeight="400"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/user_bio"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
+        android:layout_margin="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_56sdp"
+        android:layout_marginStart="@dimen/_32sdp"
+        app:layout_constraintStart_toStartOf="@id/signup_desc"
+        app:layout_constraintEnd_toEndOf="@id/signup_desc"
+        app:layout_constraintTop_toBottomOf="@id/user_gender"
+        app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+        app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+        app:boxCornerRadiusTopStart="@dimen/_10sdp"
+        app:startIconDrawable="@drawable/bio_light"
+        android:hint="@string/bio">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signup_user_bio"
+            android:inputType="text"
+            android:fontFamily="@font/font"
+            android:textSize="@dimen/_16ssp"
+            android:textFontWeight="400"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

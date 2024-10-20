@@ -92,6 +92,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/user_dob"
+        android:focusable="false"
         app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_width="0dp"
@@ -108,6 +109,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signup_user_dob"
             android:inputType="date"
+            android:focusable="false"
             android:fontFamily="@font/font"
             android:textSize="@dimen/_16ssp"
             android:textFontWeight="400"

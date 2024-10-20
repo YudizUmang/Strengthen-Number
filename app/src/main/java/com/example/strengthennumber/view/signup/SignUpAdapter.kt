@@ -1,5 +1,6 @@
 package com.example.strengthennumber.view.signup
 
+import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
@@ -8,7 +9,7 @@ import com.example.strengthennumber.view.signup.fragments.SignUpFragment1
 import com.example.strengthennumber.view.signup.fragments.SignUpFragment2
 import com.example.strengthennumber.view.signup.fragments.SignUpFragment3
 
-class SignUpAdapter(fragmentManager: FragmentManager,
+class SignUpAdapter(private val ctx : Context, fragmentManager: FragmentManager,
                     lifecycle: Lifecycle,) : FragmentStateAdapter(fragmentManager, lifecycle) {
     override fun getItemCount(): Int {
         return 3
@@ -16,9 +17,9 @@ class SignUpAdapter(fragmentManager: FragmentManager,
 
     override fun createFragment(position: Int): Fragment {
         return when(position){
-            0 -> SignUpFragment1()
-            1 -> SignUpFragment2()
-            2 -> SignUpFragment3()
+            0 -> SignUpFragment1(ctx)
+            1 -> SignUpFragment2(ctx)
+            2 -> SignUpFragment3(ctx)
             else -> throw IllegalStateException("Invalid Position: $position")
         }
     }

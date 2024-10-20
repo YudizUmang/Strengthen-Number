@@ -18,6 +18,7 @@
             android:exported="false" />
         <activity
             android:name=".view.signup.SignUpActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="false" />
         <activity
             android:name=".view.login.OtpVerificationActivity"
