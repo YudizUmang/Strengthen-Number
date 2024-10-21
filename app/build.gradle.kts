@@ -53,6 +53,10 @@ dependencies {
     implementation(libs.sdp.android)
     implementation(libs.ssp.android)
     implementation (libs.pinview)
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+    implementation (libs.kotlinx.coroutines.android)
+    implementation (libs.androidx.lifecycle.viewmodel.ktx)
 
 }
 kapt {
