@@ -8,10 +8,6 @@
         <item name="android:textColor">@color/textColor</item>
     </style>
 
-    <style name="Theme.RemoveSplashScreenTheme" parent="Base.Theme.StrengthenNumber">
-        <item name="android:windowIsTranslucent">true</item>
-    </style>
-
     <style name="ShapeAppearance.App.CornerSize" parent="Base.Theme.StrengthenNumber">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">@dimen/_16sdp</item>

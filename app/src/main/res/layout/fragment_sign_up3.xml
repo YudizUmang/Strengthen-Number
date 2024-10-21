@@ -1,11 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.signup.fragments.SignUpFragment3">
 
-    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/signup_title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/profile_setup"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:fontFamily="@font/font"
+        android:textFontWeight="700"
+        android:textSize="@dimen/_24ssp"
+        />
+
+    <TextView
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:id="@+id/signup_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_interest"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="@id/signup_title1"
+        app:layout_constraintEnd_toEndOf="@id/signup_title1"
+        app:layout_constraintTop_toBottomOf="@id/signup_title1"
+        android:fontFamily="@font/font"
+        android:textFontWeight="400"
+        android:textSize="@dimen/_16ssp"
+        />
 
 
-</FrameLayout>
+    <GridView
+        android:id="@+id/choice_grid_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numColumns="3"
+        android:horizontalSpacing="@dimen/_5sdp"
+        android:verticalSpacing="@dimen/_5sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_desc"
+
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fitness"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
+        android:layout_margin="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_56sdp"
+        android:layout_marginStart="@dimen/_32sdp"
+        app:layout_constraintStart_toStartOf="@id/choice_grid_view"
+        app:layout_constraintEnd_toEndOf="@id/choice_grid_view"
+        app:layout_constraintTop_toBottomOf="@id/choice_grid_view"
+        app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+        app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+        app:boxCornerRadiusTopStart="@dimen/_10sdp"
+        app:startIconDrawable="@drawable/level"
+        android:hint="@string/fitness_level">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signup_user_fitness"
+            android:focusable="false"
+            android:drawableEnd="@drawable/down_arrow"
+            android:inputType="text"
+            android:fontFamily="@font/font"
+            android:textSize="@dimen/_16ssp"
+            android:textFontWeight="400"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        app:layout_constraintStart_toStartOf="@id/fitness"
+        android:layout_marginStart="@dimen/_32sdp"
+        app:layout_constraintTop_toBottomOf="@id/fitness"
+        android:id="@+id/error_text_user_fitness"
+        android:textColor="@color/errorColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:fontFamily="@font/font"
+        android:textFontWeight="400"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

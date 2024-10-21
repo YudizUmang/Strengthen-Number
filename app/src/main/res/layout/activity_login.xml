@@ -50,11 +50,12 @@
         app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
         app:boxCornerRadiusBottomStart="@dimen/_10sdp"
         app:boxCornerRadiusTopStart="@dimen/_10sdp"
-        app:startIconDrawable="@drawable/call_light"
+        app:startIconDrawable="@drawable/call"
         android:layout_marginTop="@dimen/_64sdp"
         android:layout_marginEnd="@dimen/_32sdp"
         app:prefixText="+91"
         android:hint="@string/mobile_number">
+
                 <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_login"
                 android:inputType="number"

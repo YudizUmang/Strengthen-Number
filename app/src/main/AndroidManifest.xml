@@ -33,8 +33,7 @@
             android:name=".MainActivity"
             android:exported="true"
             android:launchMode="singleInstance"
-            android:noHistory="true"
-            android:theme="@style/Theme.RemoveSplashScreenTheme">
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

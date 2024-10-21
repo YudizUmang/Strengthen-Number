@@ -27,7 +27,7 @@ class SignUpActivity : AppCompatActivity() {
         prevButton = findViewById(R.id.previous_btn)
         nextButton=findViewById(R.id.signup_next_btn)
 
-        adapter = SignUpAdapter(this, supportFragmentManager, lifecycle)
+        adapter = SignUpAdapter( this, supportFragmentManager, lifecycle)
         viewPager.adapter = adapter
 
         TabLayoutMediator(tabLayout, viewPager) { _, _ ->

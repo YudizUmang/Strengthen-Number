@@ -53,7 +53,7 @@
         app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
         app:boxCornerRadiusBottomStart="@dimen/_10sdp"
         app:boxCornerRadiusTopStart="@dimen/_10sdp"
-        app:startIconDrawable="@drawable/profile_light"
+        app:startIconDrawable="@drawable/profile"
         android:hint="@string/full_name">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signup_user_nm"
@@ -64,6 +64,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        app:layout_constraintStart_toStartOf="@id/user_nm"
+        android:layout_marginStart="@dimen/_32sdp"
+        app:layout_constraintTop_toBottomOf="@id/user_nm"
+        android:id="@+id/error_text_user_nm"
+        android:textColor="@color/errorColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:fontFamily="@font/font"
+        android:textFontWeight="400"
+        />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/user_email"
@@ -89,6 +101,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        app:layout_constraintStart_toStartOf="@id/user_email"
+        android:layout_marginStart="@dimen/_32sdp"
+        app:layout_constraintTop_toBottomOf="@id/user_email"
+        android:id="@+id/error_text_user_email"
+        android:textColor="@color/errorColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:fontFamily="@font/font"
+        android:textFontWeight="400"
+        />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/user_dob"
@@ -104,7 +128,7 @@
         app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
         app:boxCornerRadiusBottomStart="@dimen/_10sdp"
         app:boxCornerRadiusTopStart="@dimen/_10sdp"
-        app:startIconDrawable="@drawable/calendar_light"
+        app:startIconDrawable="@drawable/calendar"
         android:hint="@string/dob">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signup_user_dob"
@@ -116,6 +140,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        app:layout_constraintStart_toStartOf="@id/user_dob"
+        android:layout_marginStart="@dimen/_32sdp"
+        app:layout_constraintTop_toBottomOf="@id/user_dob"
+        android:id="@+id/error_text_user_dob"
+        android:textColor="@color/errorColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:fontFamily="@font/font"
+        android:textFontWeight="400"
+        />
 
     <CheckBox
         android:id="@+id/tc_checkbox"

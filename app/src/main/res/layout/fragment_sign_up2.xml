@@ -38,23 +38,30 @@
         android:textFontWeight="400"
         android:textSize="@dimen/_16ssp"
         />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/profilepic"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/profile_view"
+        app:cardCornerRadius="@dimen/_200sdp"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_120sdp"
+        android:layout_marginTop="@dimen/_30sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signup_desc"
-        android:layout_marginTop="@dimen/_30sdp"
+        app:layout_constraintTop_toBottomOf="@id/signup_desc">
+
+    <ImageView
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_120sdp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profilepic"
         android:id="@+id/profile_img"
         />
-
+    </androidx.cardview.widget.CardView>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/profile_img"
-        app:layout_constraintEnd_toEndOf="@id/profile_img"
-        app:layout_constraintTop_toBottomOf="@id/profile_img"
+        app:layout_constraintStart_toStartOf="@id/profile_view"
+        app:layout_constraintEnd_toEndOf="@id/profile_view"
+        app:layout_constraintTop_toBottomOf="@id/profile_view"
         android:id="@+id/profile_title"
         android:text="@string/upload_profile"
         android:fontFamily="@font/font"
@@ -76,7 +83,7 @@
         app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
         app:boxCornerRadiusBottomStart="@dimen/_10sdp"
         app:boxCornerRadiusTopStart="@dimen/_10sdp"
-        app:startIconDrawable="@drawable/profile_light"
+        app:startIconDrawable="@drawable/profile"
         android:hint="@string/username">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signup_user_nm_id"
@@ -87,6 +94,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        app:layout_constraintStart_toStartOf="@id/user_nm_id"
+        android:layout_marginStart="@dimen/_32sdp"
+        app:layout_constraintTop_toBottomOf="@id/user_nm_id"
+        android:id="@+id/error_text_user_id"
+        android:textColor="@color/errorColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:fontFamily="@font/font"
+        android:textFontWeight="400"
+        />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/user_gender"
@@ -102,13 +121,14 @@
         app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
         app:boxCornerRadiusBottomStart="@dimen/_10sdp"
         app:boxCornerRadiusTopStart="@dimen/_10sdp"
-        app:startIconDrawable="@drawable/gender_light"
+        app:startIconDrawable="@drawable/gender"
 
 
         android:hint="@string/gender">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signup_user_gender"
-            android:drawableEnd="@drawable/down_arrow_light"
+            android:focusable="false"
+            android:drawableEnd="@drawable/down_arrow"
             android:inputType="text"
             android:fontFamily="@font/font"
             android:textSize="@dimen/_16ssp"
@@ -116,6 +136,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        app:layout_constraintStart_toStartOf="@id/user_gender"
+        android:layout_marginStart="@dimen/_32sdp"
+        app:layout_constraintTop_toBottomOf="@id/user_gender"
+        android:id="@+id/error_text_user_gender"
+        android:textColor="@color/errorColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:fontFamily="@font/font"
+        android:textFontWeight="400"
+        />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/user_bio"
@@ -131,16 +163,28 @@
         app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
         app:boxCornerRadiusBottomStart="@dimen/_10sdp"
         app:boxCornerRadiusTopStart="@dimen/_10sdp"
-        app:startIconDrawable="@drawable/bio_light"
+        app:startIconDrawable="@drawable/bio"
         android:hint="@string/bio">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signup_user_bio"
-            android:inputType="text"
+            android:inputType="textMultiLine"
             android:fontFamily="@font/font"
             android:textSize="@dimen/_16ssp"
             android:textFontWeight="400"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        app:layout_constraintStart_toStartOf="@id/user_bio"
+        android:layout_marginStart="@dimen/_32sdp"
+        app:layout_constraintTop_toBottomOf="@id/user_bio"
+        android:id="@+id/error_text_user_bio"
+        android:textColor="@color/errorColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:fontFamily="@font/font"
+        android:textFontWeight="400"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

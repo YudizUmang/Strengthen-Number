@@ -14,7 +14,7 @@ import com.google.android.material.textfield.TextInputEditText
 import java.util.Calendar
 
 
-class SignUpFragment1(private val ctx : Context) : Fragment() {
+class SignUpFragment1() : Fragment() {
 
 private lateinit var datePicker : TextInputEditText
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,9 +41,9 @@ private lateinit var datePicker : TextInputEditText
         val year: Int = calendar.get(Calendar.YEAR)
         val month: Int = calendar.get(Calendar.MONTH)
         val day: Int = calendar.get(Calendar.DAY_OF_MONTH)
-
+        calendar.add(Calendar.YEAR, -18)
         val datePickerDialog = DatePickerDialog(
-            ctx,
+            requireContext(),
             { _: DatePicker?, selectedYear: Int, selectedMonth: Int, selectedDay: Int ->
                 val date =
                     selectedDay.toString() + "-" + (selectedMonth + 1) + "-" + selectedYear
@@ -53,7 +53,7 @@ private lateinit var datePicker : TextInputEditText
             month,
             day
         )
-        datePickerDialog.datePicker.maxDate = calendar.getTimeInMillis();
+        datePickerDialog.datePicker.maxDate = calendar.timeInMillis;
 
         datePickerDialog.show()
     }

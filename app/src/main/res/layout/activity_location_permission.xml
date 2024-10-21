@@ -24,11 +24,11 @@
         android:layout_height="@dimen/_280sdp"
         android:layout_margin="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_25sdp"
-        android:background="@color/surfaceColorS97"
+        android:background="@drawable/rounded_corner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:shapeAppearance="@style/ShapeAppearance.App.CornerSize">
+        >
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/start_line"
             android:layout_width="wrap_content"
@@ -83,7 +83,8 @@
             android:textAllCaps="false"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:letterSpacing="0"
+            android:layout_height="@dimen/_48sdp"
             android:layout_marginStart="@dimen/_30sdp"
             android:layout_marginBottom="@dimen/_15sdp"
             android:fontFamily="@font/font"

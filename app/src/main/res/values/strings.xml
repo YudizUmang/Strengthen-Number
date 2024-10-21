@@ -62,6 +62,7 @@
     <string name="choose_interest">Choose minimum 3 interests</string>
     <string name="gym">Gym</string>
     <string name="cardio">Cardio</string>
+    <string name="yoga">yoga</string>
     <string name="workout">Workout</string>
     <string name="cycling">Cycling</string>
     <string name="zumba">Zumba</string>
@@ -69,4 +70,7 @@
     <string name="sports">Sports</string>
     <string name="running">Running</string>
     <string name="fitness_level">Fitness level</string>
+    <string name="beginner">Beginner</string>
+    <string name="intermediate">Intermediate</string>
+    <string name="expert">Expert</string>
 </resources>

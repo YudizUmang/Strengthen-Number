@@ -35,7 +35,7 @@ class OnBoardingActivity : AppCompatActivity(), OnBoardingButtons {
                 getDrawableFromImg(R.drawable.on_board1),
                 getString(R.string.onboarding_title1),
                 getString(R.string.onboarding_desc1),
-                true,
+                canSkip = true,
                 isLast = false,
                 listener = this
             ),
@@ -43,7 +43,7 @@ class OnBoardingActivity : AppCompatActivity(), OnBoardingButtons {
                 getDrawableFromImg(R.drawable.on_board2),
                 getString(R.string.onboarding_title2),
                 getString(R.string.onboarding_desc2),
-                true,
+                canSkip = true,
                 isLast = false,
                 listener = this
             ),
@@ -51,7 +51,7 @@ class OnBoardingActivity : AppCompatActivity(), OnBoardingButtons {
                 getDrawableFromImg(R.drawable.on_board3),
                 getString(R.string.onboarding_title3),
                 getString(R.string.onboarding_desc3),
-                false,
+                canSkip = false,
                 isLast = true,
                 listener = this
             )
@@ -70,14 +70,14 @@ class OnBoardingActivity : AppCompatActivity(), OnBoardingButtons {
         updateUIForPage(viewPager.currentItem)
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
-                Log.d("Position", position.toString())
-                updateUIForPage(position)
-            }
+                    Log.d("onPageSelcted Position", position.toString())
+                    updateUIForPage(position)
+                }
         })
     }
 
     private fun updateUIForPage(position: Int) {
-        Log.d("Position", position.toString())
+        Log.d("updateUI Position", position.toString())
         val currentFragment = adapter.createFragment(position) as OnBoarding
         setContent(currentFragment.title, currentFragment.desc, currentFragment.canSkip, currentFragment.isLast)
     }
@@ -105,7 +105,7 @@ class OnBoardingActivity : AppCompatActivity(), OnBoardingButtons {
 
 
     override fun setContent(title: String, desc: String, canSkip: Boolean, isLast: Boolean) {
-        Log.d("isLast", isLast.toString())
+        Log.d("setContent isLast", isLast.toString())
         skipBtn.visibility = if (canSkip) View.VISIBLE else View.GONE
         nextBtn.text = if(isLast) getString(R.string.Get_Started) else getString(R.string.Next)
         titleTextView.text = title
