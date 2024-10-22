@@ -2,7 +2,7 @@ package com.example.strengthennumber.repository.remote
 
 import com.google.gson.annotations.SerializedName
 
-data class ResponseData(
+data class UserResponse(
     @SerializedName("data" ) var data : Data? = Data(),
     @SerializedName("meta" ) var meta : Meta? = Meta()
 )

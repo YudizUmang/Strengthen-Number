@@ -12,13 +12,18 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object RetrofitModule {
 
-    @Provides
-    @Singleton
-    fun providesRetrofit() : UserApi{
-       val retrofit by lazy{ Retrofit.Builder().baseUrl("https://strengthen-numbers.dev-imaginovation.net/api/v2")
-            .addConverterFactory(GsonConverterFactory.create()).build()}
+        @Provides
+        fun provideBaseUrl(): String = "https://strengthen-numbers.dev-imaginovation.net/api/v2/"
 
-        return retrofit.create(UserApi::class.java)
+        @Provides
+        @Singleton
+        fun provideRetrofit(baseUrl: String): Retrofit = Retrofit.Builder()
+            .baseUrl(baseUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
 
-    }
+        @Provides
+        @Singleton
+        fun provideApiService(retrofit: Retrofit): UserApi= retrofit.create(UserApi::class.java)
+
 }

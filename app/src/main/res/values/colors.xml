@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="primaryColor">#182C07</color>
+    <color name="primaryColorP40">#5FB21A</color>
     <color name="surfaceColor">#141E1F</color>
     <color name="surfaceColorS97">#F3F7F7</color>
     <color name="surfaceColorS70">#A2C1C3</color>

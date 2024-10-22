@@ -9,58 +9,82 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.chaos.view.PinView
 import com.example.strengthennumber.R
+import com.example.strengthennumber.viewmodel.otpviewmodel.OTPViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class OtpVerificationActivity : AppCompatActivity() {
+
     private lateinit var backBtn : Button
     private lateinit var otpView : PinView
     private lateinit var verifyBtn : Button
     private lateinit var resendOtpBtn : Button
     private lateinit var errorText : TextView
     private lateinit var otpTimer : TextView
+    private val otpViewModel : OTPViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_otp_verification)
+
         backBtn = findViewById(R.id.back_btn)
         otpView = findViewById(R.id.otp_view)
         verifyBtn = findViewById(R.id.verify_btn)
         resendOtpBtn = findViewById(R.id.resend_otp)
         errorText = findViewById(R.id.error_text)
         otpTimer = findViewById(R.id.otp_sec)
-        startTimer()
+
+        val number = intent.getStringExtra("number")
+
+        otpViewModel.startTimer()
+
+        //timer observer
+        otpViewModel.timer.observe(this, Observer {
+            time ->
+            otpTimer.text = time
+        })
+
+        //resend btn observer
+        otpViewModel.resendBtn.observe(this, Observer {
+            isEnabled ->
+            resendOtpBtn.isEnabled = isEnabled
+        })
+
+        //validation observer
+        otpViewModel.validation.observe(this, Observer {
+            err ->
+            if(err != null){
+                errorText.visibility = View.VISIBLE
+                errorText.text = err
+            }else{
+                otpViewModel.verifyUser(otpView.text.toString(), number!!)
+                errorText.visibility = View.INVISIBLE
+            }
+
+        })
 
         backBtn.setOnClickListener {
             finish()
         }
 
         resendOtpBtn.setOnClickListener {
-            startTimer()
+            otpViewModel.startTimer()
         }
 
         verifyBtn.setOnClickListener {
-            if(otpView.text?.length!! < 4){
-                errorText.visibility = View.VISIBLE
-                errorText.text = "Please enter 4 digit OTP"
-            }
+            otpViewModel.checkValidation(this, otpView.text.toString())
         }
-
-
     }
 
-    private fun startTimer(){
-        resendOtpBtn.isEnabled = false
-        val cTimer = object : CountDownTimer(30000, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                otpTimer.text = "${(millisUntilFinished / 1000)} sec"
-            }
-            override fun onFinish() {
-                resendOtpBtn.isEnabled = true
-            }
-        }
-        cTimer.start()
+    override fun onResume() {
+        super.onResume()
+        errorText.visibility = View.INVISIBLE
     }
+
 }
