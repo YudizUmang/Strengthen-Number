@@ -7,6 +7,7 @@
     <string name="Get_Started">Get Started</string>
     <string name="images">Images</string>
     <string name="verify">Verify</string>
+    <string name="internet_error">Internet is not connected</string>
 
     <!-- Onboarding text-->
     <!--title-->
@@ -25,6 +26,7 @@
     <string name="mobile_number">Mobile Number</string>
     <string name="continue_text">Continue</string>
     <string name="login_error_text">Please enter valid phone number.</string>
+    <string name="errorTxt">Please enter 4 digit OTP</string>
 
     <!-- OTP -->
     <string name="Otp_title">OTP Verification</string>

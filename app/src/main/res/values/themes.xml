@@ -13,6 +13,10 @@
         <item name="cornerSize">@dimen/_16sdp</item>
     </style>
 
+    <style name="AppTheme.WhiteAccent" parent="Base.Theme.StrengthenNumber">
+        <item name="colorAccent">@color/white</item>
+    </style>
+
     <style name="Theme.StrengthenNumber" parent="Base.Theme.StrengthenNumber" />
 
     <style name="ThemeOverlay.StrengthenNumber.FullscreenContainer" parent="">
