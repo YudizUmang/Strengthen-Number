@@ -8,19 +8,10 @@
         <item name="android:textColor">@color/textColor</item>
     </style>
 
-    <style name="ShapeAppearance.App.CornerSize" parent="Base.Theme.StrengthenNumber">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">@dimen/_16sdp</item>
-    </style>
-
     <style name="AppTheme.WhiteAccent" parent="Base.Theme.StrengthenNumber">
         <item name="colorAccent">@color/white</item>
     </style>
 
     <style name="Theme.StrengthenNumber" parent="Base.Theme.StrengthenNumber" />
 
-    <style name="ThemeOverlay.StrengthenNumber.FullscreenContainer" parent="">
-        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
-        <item name="fullscreenTextColor">@color/light_blue_A200</item>
-    </style>
 </resources>

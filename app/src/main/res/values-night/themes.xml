@@ -4,13 +4,5 @@
 
     </style>
 
-    <style name="Theme.RemoveSplashScreenTheme" parent="Base.Theme.StrengthenNumber">
-        <item name="android:windowIsTranslucent">true</item>
-    </style>
-
-    <style name="ThemeOverlay.StrengthenNumber.FullscreenContainer" parent="">
-        <item name="fullscreenBackgroundColor">@color/light_blue_900</item>
-        <item name="fullscreenTextColor">@color/light_blue_A400</item>
-    </style>
 
 </resources>
