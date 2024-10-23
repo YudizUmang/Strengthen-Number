@@ -15,7 +15,7 @@ interface UserApi {
     suspend fun verifyOtp(@Body jsonObject: JsonObject) : Response<UserResponse>
 
     @POST("resend-otp")
-    suspend fun resendOtp(@Body contactNumber : String) : Response<UserResponse>
+    suspend fun resendOtp(@Body contactNumber : JsonObject) : Response<UserResponse>
 
     @POST("edit-profile")
     suspend fun setEditProfile(@Body userData: UserData) : Response<UserResponse>

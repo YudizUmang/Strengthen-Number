@@ -1,6 +1,5 @@
 package com.example.strengthennumber.view.login
 
-import android.R.id
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -21,10 +20,8 @@ import com.example.strengthennumber.viewmodel.loginviewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 
 @AndroidEntryPoint
@@ -35,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginContinueBtn : Button
     private lateinit var loginErrorText : TextView
     private lateinit var progressBar: ProgressBar
+    private lateinit var main : ConstraintLayout
     private val helper = Helper()
     private val activityScope = CoroutineScope(Dispatchers.Main)
 
@@ -46,6 +44,7 @@ class LoginActivity : AppCompatActivity() {
         loginContinueBtn = findViewById(R.id.continue_btn)
         loginErrorText = findViewById(R.id.error_text)
         progressBar = findViewById(R.id.progressBar)
+        main = findViewById(R.id.main)
 
         //Ui Handling
         loginViewModel.apiResponse.observe(this, Observer {
@@ -70,10 +69,10 @@ class LoginActivity : AppCompatActivity() {
                         this,
                         OtpVerificationActivity::class.java
                     )
-                    val main = findViewById<ConstraintLayout>(R.id.main)
+
                     helper.showSnackBar(this, main, R.color.primaryColorP40, state.data.meta?.message!!)
                     activityScope.launch {
-                        delay(1500)
+                        delay(1000)
                         otpIntent.putExtra("number", loginEditText.text.toString())
                         startActivity(otpIntent)                   }
 
@@ -92,7 +91,10 @@ class LoginActivity : AppCompatActivity() {
         })
 
         loginContinueBtn.setOnClickListener {
-            loginViewModel.checkLoginValidation(this, loginEditText.text.isEmpty(), loginEditText.text.length)
+            if(helper.isOnline(this))
+                loginViewModel.checkLoginValidation(this, loginEditText.text.isEmpty(), loginEditText.text.length)
+            else
+                helper.showSnackBar(this, main, R.color.errorColor, getString(R.string.internet_error))
      }
     }
 }

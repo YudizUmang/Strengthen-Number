@@ -4,25 +4,27 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.CountDownTimer
 import android.util.Log
-import android.widget.TextView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.strengthennumber.R
 import com.example.strengthennumber.repository.LoginRepo
-import com.example.strengthennumber.repository.local.SharedPref
 import com.example.strengthennumber.repository.remote.UserResponse
 import com.example.strengthennumber.repository.state.ApiState
+import com.google.gson.Gson
 import com.google.gson.JsonObject
+import com.google.gson.reflect.TypeToken
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class OTPViewModel @Inject constructor(private val repo : LoginRepo, private val sharedPref : SharedPreferences): ViewModel() {
-    private val sharedPrefEditor = sharedPref.edit()
+class OTPViewModel @Inject constructor(private val repo : LoginRepo, private val sharedpref : SharedPreferences): ViewModel() {
+
+    private val sharedPrefEditor = sharedpref.edit()
+
     //state liveData
     private val _apiResponse = MutableLiveData<ApiState<UserResponse>>()
     val apiResponse: LiveData<ApiState<UserResponse>> = _apiResponse
@@ -39,6 +41,8 @@ class OTPViewModel @Inject constructor(private val repo : LoginRepo, private val
     //timer liver data
     private val _timer = MutableLiveData<String>()
     val timer: MutableLiveData<String> get() = _timer
+
+
 
     fun startTimer(){
         _resendBtn.value = false
@@ -58,20 +62,46 @@ class OTPViewModel @Inject constructor(private val repo : LoginRepo, private val
     }
 
     fun verifyUser(otp : String, number : String){
+        _apiResponse.postValue(ApiState.Loading)
         val jsonObject = JsonObject()
         jsonObject.addProperty("contact_number", number)
         jsonObject.addProperty("otp", otp.toInt())
+
         viewModelScope.launch(Dispatchers.IO) {
             val result = repo.verifyUserOtp(jsonObject)
             if (result.isSuccessful){
-                //_userLoginData.postValue(result.body()?.meta?.message)
-                sharedPrefEditor.putString("X-Authorization-Token", result.headers().get("X-Authorization-Token"))
                 _apiResponse.postValue(ApiState.Success(result.body()!!))
+                sharedPrefEditor.putString("X-Authorization-Token", result.headers().get("X-Authorization-Token"))
+                sharedPrefEditor.apply()
                 Log.d("userData", result.body().toString())
             }else{
-                Log.d("failure", result.errorBody().toString())
-                //_userLoginData.postValue(result.message)
-                _apiResponse.postValue(ApiState.Error(result.errorBody().toString()))
+                val gson = Gson()
+                val type = object : TypeToken<UserResponse>() {}.type
+                val errorResponse: UserResponse? = gson.fromJson(result.errorBody()!!.charStream(), type)
+                Log.d("Failure", errorResponse.toString())
+                _apiResponse.postValue(
+                    ApiState.Error(
+                        errorResponse?.meta?.message))
+            }
+        }
+    }
+
+    fun resendOtp(number: String){
+        _apiResponse.postValue(ApiState.Loading)
+        val jsonObject = JsonObject()
+        jsonObject.addProperty("contact_number", number)
+        viewModelScope.launch(Dispatchers.IO) {
+            val result = repo.resendOtpUser(jsonObject)
+            if (result.isSuccessful){
+                _apiResponse.postValue(ApiState.Success(result.body()!!))
+
+                Log.d("userData", result.body().toString())
+            }else{
+                val gson = Gson()
+                val type = object : TypeToken<UserResponse>() {}.type
+                val errorResponse: UserResponse? = gson.fromJson(result.errorBody()!!.charStream(), type)
+                Log.d("Failure", errorResponse.toString())
+                _apiResponse.postValue(ApiState.Error(errorResponse?.meta?.message))
             }
         }
     }

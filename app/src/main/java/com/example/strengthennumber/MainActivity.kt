@@ -8,8 +8,6 @@ import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.annotation.RequiresApi
-import com.example.strengthennumber.repository.local.SharedPref
-import com.example.strengthennumber.view.home.HomeActivity
 import com.example.strengthennumber.view.onboarding.OnBoardingActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
@@ -35,8 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         activityScope.launch {
             delay(3000)
-
-            checkUser()
+            startActivity(Intent(this@MainActivity, OnBoardingActivity::class.java))
         }
     }
 
@@ -45,11 +42,11 @@ class MainActivity : AppCompatActivity() {
         super.onPause()
     }
 
-    private fun checkUser(){
-        if(sharedPref.contains("X-Authorization-Token")){
-            startActivity(Intent(this, HomeActivity::class.java))
-        }else{
-            startActivity(Intent(this, OnBoardingActivity::class.java))
-        }
-    }
+//    private fun checkUser(){
+//        if(sharedPref.contains("X-Authorization-Token")){
+//            startActivity(Intent(this, HomeActivity::class.java))
+//        }else{
+//            startActivity(Intent(this, OnBoardingActivity::class.java))
+//        }
+//    }
 }

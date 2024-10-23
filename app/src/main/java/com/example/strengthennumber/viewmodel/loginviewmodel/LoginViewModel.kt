@@ -1,7 +1,6 @@
 package com.example.strengthennumber.viewmodel.loginviewmodel
 
 import android.content.Context
-import android.service.autofill.UserData
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,7 +10,9 @@ import com.example.strengthennumber.R
 import com.example.strengthennumber.repository.LoginRepo
 import com.example.strengthennumber.repository.remote.UserResponse
 import com.example.strengthennumber.repository.state.ApiState
+import com.google.gson.Gson
 import com.google.gson.JsonObject
+import com.google.gson.reflect.TypeToken
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -46,13 +47,14 @@ class LoginViewModel @Inject constructor(private val repo: LoginRepo) : ViewMode
 
             val result = repo.sendOtp(jsonObject)
             if (result.isSuccessful){
-               // _userLoginData.postValue(result.body()?.meta?.message)
-                _apiResponse.postValue(ApiState.Success(result.body()!!))
+               _apiResponse.postValue(ApiState.Success(result.body()!!))
                 Log.d("userData", result.body().toString())
             }else{
-                Log.d("failure", result.errorBody().toString())
-                //_userLoginData.postValue(result.message)
-                _apiResponse.postValue(ApiState.Error(result.errorBody().toString()))
+                val gson = Gson()
+                val type = object : TypeToken<UserResponse>() {}.type
+                val errorResponse: UserResponse? = gson.fromJson(result.errorBody()!!.charStream(), type)
+                Log.d("Failure", errorResponse.toString())
+                _apiResponse.postValue(ApiState.Error(errorResponse?.meta?.message))
             }
         }
     }
