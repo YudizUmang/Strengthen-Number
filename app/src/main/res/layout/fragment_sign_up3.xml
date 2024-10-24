@@ -40,6 +40,7 @@
 
 
     <GridView
+        android:layout_marginHorizontal="@dimen/_15sdp"
         android:id="@+id/choice_grid_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

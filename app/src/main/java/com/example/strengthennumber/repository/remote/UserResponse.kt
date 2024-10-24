@@ -10,6 +10,7 @@ data class UserResponse(
 data class Data (
 
     @SerializedName("id"             ) var id            : Int?    = null,
+    @SerializedName("username"       ) var userName      : String? = null,
     @SerializedName("name"           ) var name          : String? = null,
     @SerializedName("email"          ) var email         : String? = null,
     @SerializedName("contact_number" ) var contactNumber : String? = null,
@@ -19,8 +20,12 @@ data class Data (
     @SerializedName("latitude"       ) var latitude      : String? = null,
     @SerializedName("longitude"      ) var longitude     : String? = null,
     @SerializedName("fitness_level"  ) var fitnessLevel  : String? = null,
-    @SerializedName("interests"      ) var interests     : String? = null,
-    @SerializedName("profile_photo"  ) var profilePhoto  : String? = null
+    @SerializedName("interests"      ) var interests     : Set<String>? = null,
+    @SerializedName("profile_photo"  ) var profilePhoto  : String? = null,
+    @SerializedName("registered_at"  ) var registerAt    : String? = null,
+    @SerializedName("total_followers") var followers     : Int? = null,
+    @SerializedName("total_followings") var following    : Int? = null,
+    @SerializedName("is_blocked"     ) var isBlocked     : Int? = null
 
 )
 

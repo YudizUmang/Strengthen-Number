@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/_104sdp"
+    android:layout_width="@dimen/_90sdp"
     android:layout_height="wrap_content"
     android:background="@drawable/rectangle"
     android:padding="@dimen/_5sdp"

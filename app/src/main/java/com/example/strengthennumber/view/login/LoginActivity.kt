@@ -59,6 +59,7 @@ class LoginActivity : AppCompatActivity() {
                 is ApiState.Error -> {
                     progressBar.visibility = View.GONE
                     loginContinueBtn.text = getString(R.string.continue_text)
+                    helper.showSnackBar(this, main, R.color.primaryColorP40, state.message!!)
                     state.message?.let { Log.d("error", it) }
                 }
 
@@ -72,7 +73,7 @@ class LoginActivity : AppCompatActivity() {
 
                     helper.showSnackBar(this, main, R.color.primaryColorP40, state.data.meta?.message!!)
                     activityScope.launch {
-                        delay(1000)
+                        delay(500)
                         otpIntent.putExtra("number", loginEditText.text.toString())
                         startActivity(otpIntent)                   }
 

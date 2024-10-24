@@ -60,4 +60,16 @@
         app:cornerRadius="@dimen/_12sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.WhiteAccent"
+        android:visibility="gone"
+        android:id="@+id/progressBar"
+        app:layout_constraintStart_toStartOf="@id/signup_next_btn"
+        app:layout_constraintEnd_toEndOf="@id/signup_next_btn"
+        app:layout_constraintTop_toTopOf="@id/signup_next_btn"
+        app:layout_constraintBottom_toBottomOf="@id/signup_next_btn"/>
+
   </androidx.constraintlayout.widget.ConstraintLayout>

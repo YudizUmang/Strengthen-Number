@@ -75,4 +75,17 @@
     <string name="beginner">Beginner</string>
     <string name="intermediate">Intermediate</string>
     <string name="expert">Expert</string>
+
+    <string name="usernm_err">Please enter valid Name</string>
+    <string name="email_err">Please enter valid Email</string>
+    <string name="dob_err">Please enter valid date of birth</string>
+    <string name="tc_err">Please confirm you are agree with all terms and conditions.</string>
+    <string name="age_err">Please confirm you are 18+ years old.</string>
+
+    <string name="usernm_id_err">Please enter username</string>
+    <string name="gender_err">Please enter your gender</string>
+    <string name="bio_err">Please enter Bio</string>
+
+    <string name="interest_err">Please enter minimum 3 interest</string>
+    <string name="fitness_err">Please enter Fitness level</string>
 </resources>

@@ -1,5 +1,7 @@
 package com.example.strengthennumber.repository.remote
 
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -7,6 +9,7 @@ import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
+
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -19,7 +22,9 @@ object RetrofitModule {
         @Singleton
         fun provideRetrofit(baseUrl: String): Retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(GsonBuilder()
+                .setLenient()
+                .create()))
             .build()
 
         @Provides

@@ -70,7 +70,8 @@ class OnBoardingActivity : AppCompatActivity(), OnBoardingButtons {
         updateUIForPage(viewPager.currentItem)
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
-                    Log.d("onPageSelcted Position", position.toString())
+                super.onPageSelected(position)
+                    Log.d("onPageSelected Position", position.toString())
                     updateUIForPage(position)
                 }
         })

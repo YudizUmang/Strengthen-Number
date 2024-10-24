@@ -17,8 +17,8 @@ class SignUpAdapter(private val context: Context, fragmentManager: FragmentManag
 
     override fun createFragment(position: Int): Fragment {
         return when(position){
-            0 -> SignUpFragment1()
-            1 -> SignUpFragment2()
+            0 -> SignUpFragment1(context)
+            1 -> SignUpFragment2(context)
             2 -> SignUpFragment3(context)
             else -> throw IllegalStateException("Invalid Position: $position")
         }

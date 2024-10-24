@@ -92,15 +92,19 @@ class OtpVerificationActivity : AppCompatActivity() {
                 is ApiState.Success ->{
                     progressBar.visibility = View.GONE
                     verifyBtn.text = getString(R.string.verify)
-                    val otpIntent = Intent(
+                    val signupIntent = Intent(
                         this,
-                        OtpVerificationActivity::class.java
+                        SignUpActivity::class.java
                     )
 
                     helper.showSnackBar(this, main, R.color.primaryColorP40, state.data.meta?.message!!)
                     activityScope.launch {
-                        delay(1500)
-                        //start Signup activity
+                        delay(500)
+                        if (state.data.data != null){
+                            signupIntent.putExtra("number", number)
+                            signupIntent.putExtra("id", state.data.data!!.id)
+                            startActivity(signupIntent)
+                        }
                     }
 
                 }
@@ -117,6 +121,11 @@ class OtpVerificationActivity : AppCompatActivity() {
         otpViewModel.resendBtn.observe(this, Observer {
             isEnabled ->
             resendOtpBtn.isEnabled = isEnabled
+            if(isEnabled) {
+                resendOtpBtn.setTextColor(resources.getColor(R.color.primaryColor) )
+            }else{
+                resendOtpBtn.setTextColor(resources.getColor(R.color.surfaceColorS70) )
+            }
         })
 
         //validation observer

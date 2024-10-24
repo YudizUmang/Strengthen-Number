@@ -111,6 +111,7 @@
 
     <Button
         android:id="@+id/resend_otp"
+        android:letterSpacing="0"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:textAllCaps="false"
         android:layout_width="wrap_content"
