@@ -100,6 +100,7 @@ class OtpVerificationActivity : AppCompatActivity() {
                     helper.showSnackBar(this, main, R.color.primaryColorP40, state.data.meta?.message!!)
                     activityScope.launch {
                         delay(500)
+
                         if (state.data.data != null){
                             signupIntent.putExtra("number", number)
                             signupIntent.putExtra("id", state.data.data!!.id)

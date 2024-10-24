@@ -1,6 +1,7 @@
 package com.example.strengthennumber.view.signup
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -13,16 +14,12 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.strengthennumber.R
-import com.example.strengthennumber.repository.remote.Data
-import com.example.strengthennumber.repository.remote.UserResponse
 import com.example.strengthennumber.repository.state.ApiState
 import com.example.strengthennumber.view.helper.Helper
 import com.example.strengthennumber.view.home.HomeActivity
-import com.example.strengthennumber.view.login.OtpVerificationActivity
 import com.example.strengthennumber.view.signup.fragments.PassData
 import com.example.strengthennumber.view.signup.fragments.SignUpFragment1
 import com.example.strengthennumber.view.signup.fragments.SignUpFragment2
@@ -36,6 +33,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
@@ -51,6 +49,9 @@ class  SignUpActivity : AppCompatActivity(), PassData {
     private lateinit var main : ConstraintLayout
     private val activityScope = CoroutineScope(Dispatchers.Main)
 
+    @Inject
+    lateinit var sharedPref : SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -61,6 +62,8 @@ class  SignUpActivity : AppCompatActivity(), PassData {
         nextButton=findViewById(R.id.signup_next_btn)
         progressBar = findViewById(R.id.progressBar)
         main = findViewById<ConstraintLayout>(R.id.main)
+
+        val sharedPrefEditor = sharedPref.edit()
 
         adapter = SignUpAdapter( this, supportFragmentManager, lifecycle)
         viewPager.adapter = adapter
@@ -83,6 +86,18 @@ class  SignUpActivity : AppCompatActivity(), PassData {
             tabLayout.requestLayout()
         }
 
+        val fromMain = intent.getBooleanExtra("fromMain", false)
+        if(fromMain){
+            signUpViewModel.getUserProfile()
+//            val fragments: List<Fragment> = supportFragmentManager.fragments
+//            when(val currentFragment: Fragment = fragments[viewPager.currentItem]){
+//                is SignUpFragment1 -> currentFragment.onButtonClick()
+//                is SignUpFragment2 -> currentFragment.onButtonClick()
+//                is SignUpFragment3 -> currentFragment.onButtonClick()
+//            }
+
+        }
+
         signUpViewModel.apiResponse.observe(this, Observer {
                 state ->
             Log.d("State", state.toString())
@@ -101,6 +116,8 @@ class  SignUpActivity : AppCompatActivity(), PassData {
                 is ApiState.Success ->{
                     progressBar.visibility = View.GONE
                     nextButton.text = getString(R.string.Next)
+                    sharedPrefEditor.putBoolean("isUser", true)
+                    sharedPrefEditor.apply()
                     val home = Intent(
                         this,
                         HomeActivity::class.java
@@ -108,10 +125,15 @@ class  SignUpActivity : AppCompatActivity(), PassData {
                     viewPager.currentItem +=1
 
                     helper.showSnackBar(this, main, R.color.primaryColorP40, state.data.meta?.message!!)
-                    activityScope.launch {
-                        delay(500)
-
+                    if(viewPager.currentItem == 2)
+                    {
+                        activityScope.launch {
+                            delay(500)
+                            startActivity(home)
+                            finish()
+                        }
                     }
+
 
                 }
             }
@@ -163,8 +185,6 @@ class  SignUpActivity : AppCompatActivity(), PassData {
 
     override fun onDataPass(data: JsonObject) {
         Log.d("data", data.toString())
-        data.addProperty("contact_number", intent.getStringExtra("number"))
-        data.addProperty("id", intent.getIntExtra("id", 0))
         signUpViewModel.setupUserProfile(data)
     }
 

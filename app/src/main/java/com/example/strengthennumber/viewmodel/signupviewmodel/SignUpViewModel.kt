@@ -7,13 +7,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.strengthennumber.repository.SignUpRepo
-import com.example.strengthennumber.repository.remote.Data
 import com.example.strengthennumber.repository.remote.UserResponse
 import com.example.strengthennumber.repository.state.ApiState
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
-import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,15 +27,43 @@ class SignUpViewModel @Inject constructor(
     private val _apiResponse = MutableLiveData<ApiState<UserResponse>>()
     val apiResponse: LiveData<ApiState<UserResponse>> = _apiResponse
 
+    val sharedPrefEditor = sharedPref.edit()
+
     fun setupUserProfile(data : JsonObject){
         _apiResponse.value = ApiState.Loading
             val token = sharedPref.getString("X-Authorization-Token", null)
             Log.d("token", token.toString())
-//            val jsonObjectToken = JsonObject()
-//            jsonObjectToken.addProperty("X-Authorization-Token", token.toString())
         if(token != null) {
             viewModelScope.launch(Dispatchers.IO) {
                 val result = repo.setupProfile("Bearer $token", data)
+                if (result.isSuccessful) {
+                    _apiResponse.postValue(ApiState.Success(result.body()!!))
+                    if(result.body()!!.data?.interests != null){
+                        sharedPrefEditor.putBoolean("registerUser", true)
+                    }
+                    Log.d("userData setupProfile", result.body().toString())
+                } else {
+                    val gson = Gson()
+                    val type = object : TypeToken<UserResponse>() {}.type
+                    val errorResponse =
+                        gson.fromJson<UserResponse>(result.errorBody()!!.charStream(), type)
+                    Log.d("Failure", errorResponse.toString())
+                    _apiResponse.postValue(
+                        ApiState.Error(errorResponse?.meta?.message)
+                    )
+                }
+            }
+        }else{
+            Log.d("null token", "Token is null")
+        }
+    }
+
+    fun getUserProfile(){
+        _apiResponse.value = ApiState.Loading
+        val token = sharedPref.getString("X-Authorization-Token", null)
+        if(token !=null) {
+            viewModelScope.launch(Dispatchers.IO) {
+                val result = repo.getProfile("Bearer $token")
                 if (result.isSuccessful) {
                     _apiResponse.postValue(ApiState.Success(result.body()!!))
                     Log.d("userData setupProfile", result.body().toString())

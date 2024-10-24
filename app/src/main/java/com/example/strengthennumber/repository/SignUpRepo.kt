@@ -23,4 +23,17 @@ class SignUpRepo @Inject constructor(private val userApi : UserApi) {
             Response.error<UserResponse>(1000, ResponseBody.create(MediaType.parse("text/String"), e.toString()))
         }
     }
+
+    suspend fun getProfile(token : String):Response<UserResponse>{
+        val response : Response<UserResponse>
+
+        return try {
+            response = userApi.getProfile(token)
+            Log.d("result", response.toString())
+            response
+        } catch (e: Exception) {
+            Log.d("exception", e.toString())
+            Response.error<UserResponse>(1000, ResponseBody.create(MediaType.parse("text/String"), e.toString()))
+        }
+    }
 }

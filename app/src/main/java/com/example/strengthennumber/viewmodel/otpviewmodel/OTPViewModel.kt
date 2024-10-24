@@ -69,6 +69,7 @@ class OTPViewModel @Inject constructor(private val repo : LoginRepo, private val
 
         viewModelScope.launch(Dispatchers.IO) {
             val result = repo.verifyUserOtp(jsonObject)
+
             if (result.isSuccessful){
                 _apiResponse.postValue(ApiState.Success(result.body()!!))
                 sharedPrefEditor.putString("X-Authorization-Token", result.headers().get("X-Authorization-Token"))

@@ -127,6 +127,8 @@ class SignUpFragment3(private val context: Context) : Fragment() {
             data.addProperty("fitness_level", fitnessLevel.text.toString().lowercase().trim())
             data.add("interests", jsonArray)
 
+                Log.d("data json", data.toString())
+
             dataPasser.onDataPass(data)
             }
         }else{
